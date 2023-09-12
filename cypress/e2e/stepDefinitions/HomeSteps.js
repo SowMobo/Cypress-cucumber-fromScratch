@@ -2,8 +2,8 @@ const { When, Given, Then } = require("@badeball/cypress-cucumber-preprocessor")
 
 import { HomePage } from "../pages/HomePage";
 
-Given('I open amazon home page {string}', (urlSUT)=> {
-    HomePage.openAmazon(urlSUT)
+Given('I am on amazon home page {string}', (sutUrl)=> {
+    HomePage.openAmazon(sutUrl)
     HomePage.closeCookies()
 })
 
@@ -22,3 +22,7 @@ Then('the first item from the search has title {string}', (keyword)=> {
 Then('the search result has at least {int} items', (length)=> {
     HomePage.checkLenght(length)
 }) 
+
+Then('price {string}', (price) => {
+    HomePage.checkPrice(price)
+})

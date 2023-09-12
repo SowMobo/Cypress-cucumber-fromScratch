@@ -34,10 +34,11 @@ async function setupNodeEvents(on, config) {
   return config;
 }
 
-module.exports = defineConfig({
+module.exports =  defineConfig({
+  projectId: 'c19z2i',
   e2e: {
-    baseUrl: "https://duckduckgo.com",
-    specPattern: "**/*.feature",
+    baseUrl: "https://amazon.fr",
+    specPattern: ['**/*.feature','**/test/*.cy.js'],
     setupNodeEvents,
   },
 });

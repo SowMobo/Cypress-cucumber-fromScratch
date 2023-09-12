@@ -4,21 +4,23 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "cy:install dependancies": "install --only=dev",
     "test": "cypress run",
-    "cy:open": "cypress open"
+    "cy:open": "cypress open",
+    "run:loginTest": "cypress run --sepc '**/e2e/test/loginTest.cy.js'"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "^18.0.1",
-    "cypress": "^12.14.0"
+    "@badeball/cypress-cucumber-preprocessor": "^18.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.22.5",
     "@babel/preset-env": "^7.22.5",
     "@cypress/webpack-preprocessor": "^5.17.1",
     "babel-loader": "^9.1.2",
+    "cypress": "^12.16.0",
     "webpack": "^5.87.0"
   },
   "cypress-cucumber-preprocessor": {

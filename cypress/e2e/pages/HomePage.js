@@ -4,9 +4,10 @@ export class HomePage {
     static resultList = 'div.s-card-container'
     static articleTitle = '.sg-col-inner h2 span'
     static cookiesBy = '#sp-cc-accept'
+    static priceBy = 'span.a-price-whole'
 
-    static openAmazon(urlSUT) {
-        cy.visit(urlSUT)
+    static openAmazon(sutUrl) {
+        cy.visit(sutUrl)
     }
     static closeCookies() {
         cy.get(this.cookiesBy).click()
@@ -23,15 +24,21 @@ export class HomePage {
     }
 
     static checkArticleTtile(keyword) {
-            const firstItem = cy.get(this.resultList).first()
-                cy.debug()
-                const title = firstItem.get(this.articleTitle, { timeout: 10000 })
-                title.debug()
-                title.should('contain.text', keyword)
+            cy.get(this.resultList).as('items')
+            cy.get('@items').get(this.articleTitle, { timeout: 10000 }).first().as('title')
+            cy.get('@title').should('contain.text', keyword)
     }
 
     static checkLenght(length) {
-        cy.get(this.resultList).debug()
+        cy.get(this.resultList)
             .should('have.length.at.least', length)
     }
+
+    static checkPrice(price) {
+        const items = cy.get(this.resultList)
+        items.get(this.priceBy).first().then(($priceElt) => {
+            const price = $priceElt.text()
+            expect(price).to.equal(price)
+        })
+    } 
 }
