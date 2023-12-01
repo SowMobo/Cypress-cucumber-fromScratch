@@ -1,13 +1,11 @@
 {
   "name": "cypress-cucumber-fromscratch",
   "version": "1.0.0",
-  "description": "",
+  "description": "Run 'set DEBUG=cypress:*\r cypress run' to understand 'Error: Webpack Compilation Error'",
   "main": "index.js",
   "scripts": {
-    "cy:install dependancies": "install --only=dev",
-    "test": "cypress run",
-    "cy:open": "cypress open",
-    "run:loginTest": "cypress run --sepc '**/e2e/test/loginTest.cy.js'"
+    "cy:taggedTests": "cypress run -e TAGS='@search'",
+    "cy:open": "npm install --only=dev && cypress open -e TAGS= '@search'"
   },
   "keywords": [],
   "author": "",
@@ -18,13 +16,17 @@
   "devDependencies": {
     "@babel/core": "^7.22.5",
     "@babel/preset-env": "^7.22.5",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
     "@cypress/webpack-preprocessor": "^5.17.1",
     "babel-loader": "^9.1.2",
-    "cypress": "^12.16.0",
+    "cypress": "^12.17.4",
+    "esbuild": "^0.19.8",
     "webpack": "^5.87.0"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true,
-    "stepDefinitions": "cypress/e2e/stepDefinitions/*.js"
+    "stepDefinitions": "cypress/e2e/stepDefinitions/*.js",
+    "filterSpecs": true,
+    "omitFiltered": true
   }
 }
