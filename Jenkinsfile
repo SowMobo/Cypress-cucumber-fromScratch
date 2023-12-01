@@ -8,7 +8,7 @@ pipeline {
         }
         stage('e2e Tests') {
             steps {
-                bat script: "npx cypress run --browser firefox -spec cypress/e2e/test/demo.cy.js"     
+                bat script: "npx cypress run --browser firefox --spec cypress/e2e/test/demo.cy.js"     
             }
         }
             
