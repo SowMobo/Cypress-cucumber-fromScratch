@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages('Launch TNR') {
-        stage('Launch Demo') {
+        stage('Demo') {
             steps('Install dependancies') {
                 bat script: "npm i"
 
