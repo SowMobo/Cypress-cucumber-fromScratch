@@ -1,6 +1,5 @@
 pipeline {
     agent any
-    tools {nodejs "Node20.10.0"}
     stages {
         stage('Intalling Dependancies') {
             steps{
