@@ -1,15 +1,17 @@
 pipeline {
     agent any
-    stages('Launch TNR') {
-        stage('Demo') {
-            steps('Install dependancies') {
+    tools {nodejs "Node20.10.0"}
+    stages {
+        stage('Intalling Dependancies') {
+            steps{
                 bat script: "npm i"
-
-            }
-            steps('Run demo test') {
-                bat script: "npx cypress run --browser firefox -spec cypress/e2e/test/demo.cy.js"
-                
             }
         }
+        stage('e2e Tests') {
+            steps {
+                bat script: "npx cypress run --browser firefox -spec cypress/e2e/test/demo.cy.js"     
+            }
+        }
+            
     }
 }
