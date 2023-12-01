@@ -1,10 +1,10 @@
 pipeline {
     agent any
-    environment {
-        token = ""
-        projectKey = "POEI23Project2GR1"
+    // environment {
+    //     token = ""
+    //     projectKey = "POEI23Project2GR1"
 
-    }
+    // }
     stages('Launch TNR') {
         stage('Launch Demo') {
             // options {
